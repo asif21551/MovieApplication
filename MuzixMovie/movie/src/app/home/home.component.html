@@ -1,0 +1,30 @@
+<div class="content" style="background-color:grey ;" >
+
+
+      <div class="row" >
+        <div class="col-md-3"  style="margin-bottom:5px ;text-align:center ;"  *ngFor="let data of allMoviesfromapi"  (click)="movieDetails(data)">
+          <img src="https://image.tmdb.org/t/p/w300/{{data.poster_path }}" appHover><br><br>
+
+
+                    <h2 >{{data.original_title}}</h2>
+               <h4 style="font-weight:bold;">vote: {{data.vote_average}}</h4>
+                <h4 style="font-weight:bold;">Release Date: {{data.release_date}} </h4>
+
+
+
+        <hr></div><hr>
+
+
+
+      </div>
+      <div style="margin-left:40%">
+          <button [disabled]="currentPg<=1" (click)="decreasePage()" mat-raised-button>
+              <mat-icon>navigate_before</mat-icon> Previous Page
+          </button><button [disabled]="currentPg>=33349" (click)="increasePage()" mat-raised-button>Next Page
+              <mat-icon>navigate_next</mat-icon> </button>
+      </div>
+
+</div>
+
+
+

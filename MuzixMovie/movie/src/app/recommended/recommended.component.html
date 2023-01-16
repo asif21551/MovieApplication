@@ -1,0 +1,19 @@
+
+<div class="font1"  style="background-color:rgb(199,239,173) ;text-align:center ;height:10% ;">
+
+  <h2 class="searchLine" class="font1" style="padding-top:20px ;font:500px;font-size:35px ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Showing Recommendations for {{titleMovie}}</h2>
+</div>
+<div class="content"  >
+
+
+      <div class="row" >
+        <div class="col-md-3"  style="margin-bottom:5px ;text-align:center ;"  *ngFor="let data of allRecommendedMovies"  (click)="movieDetails(data)">
+          <img src="https://image.tmdb.org/t/p/w300/{{data.poster_path }}" appHover><br><br>
+
+
+                    <h2 >{{data.original_title}}</h2>
+               <h4 style="font-weight:bold;">vote: {{data.vote_average}}</h4>
+                <h4 style="font-weight:bold;">Release Date: {{data.release_date}} </h4>
+       <hr> </div>
+        </div>
+</div>

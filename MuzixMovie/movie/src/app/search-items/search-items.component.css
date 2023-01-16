@@ -1,0 +1,5 @@
+.row{
+  background: #43C6AC;
+background: -webkit-linear-gradient(to right, #F8FFAE, #43C6AC);
+background: linear-gradient(to right, #F8FFAE, #43C6AC);
+}

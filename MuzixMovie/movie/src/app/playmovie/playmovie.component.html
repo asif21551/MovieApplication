@@ -1,0 +1,32 @@
+
+<div class="theme" style="background-color:aquamarine;width: 100%;height:auto ;">
+<div>
+<iframe src="https://www.youtube.com/embed/mkomfZHG5q4" frameborder="1"  class="edit"></iframe>
+<hr>
+
+<mat-card class="theme" >
+<mat-card-title style="font-size: 30px;text-align: center;color: black ;" class="font1">
+
+  {{particulartitle}}
+</mat-card-title><hr><br>
+
+
+
+<mat-card-subtitle style="font-size:x-large ; font-weight:bold; " class="font2">Released:&nbsp;&nbsp;
+  {{particularrelease}}
+</mat-card-subtitle><hr><br>
+
+<mat-card-subtitle style=" font-weight:bold; " class="font3">Overview :&nbsp;&nbsp;
+  {{particularoverview}}
+</mat-card-subtitle><hr>
+
+<div fxLayout="row wrap" fxLayoutGap="2px grid" class="font1" style="font-size:x-large ; font-weight:bold; ">
+  <mat-card-subtitle> genre_ids :&nbsp;&nbsp;</mat-card-subtitle>
+  <mat-card-subtitle *ngFor="let genre of particularMovieGenre" >
+       {{genre.name}}&nbsp;&nbsp;
+  </mat-card-subtitle>
+  </div>
+</mat-card>
+</div>
+</div>
+

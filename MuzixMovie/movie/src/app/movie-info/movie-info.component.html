@@ -1,0 +1,83 @@
+
+
+<div id="bgimg"  style="background-image: url(https://image.tmdb.org/t/p/w300/{{particularmovieData.backdrop_path}});width: 100%;">
+
+<div class="container" style="width: max-content;">
+  <div id="infoCard">
+    <div class="row" style="margin-top: 75px; margin-bottom: 75px;">
+      <div class="col">
+        <mat-card class="example-card movie-img">
+            <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{particularmovieData.poster_path }} " appHover>
+        </mat-card>
+    </div>
+    <div class="col content" style="margin:20px ;">
+      <mat-card class="cardContent"  style="background-image:url('./assets/background1.jpeg') " appHover>
+          <mat-card-title style="font-size: 30px;text-align: center;color: black ;"  >
+
+              {{particularmovieData.original_title}}
+          </mat-card-title><hr><br>
+
+
+
+          <mat-card-subtitle style="font-size: 20px;">Released:&nbsp;&nbsp;
+              {{particularmovieData.release_date}}
+          </mat-card-subtitle><hr><br>
+
+          <mat-card-subtitle style="font-size: 20px" >Overview :&nbsp;&nbsp;
+              {{particularmovieData.overview}}
+          </mat-card-subtitle>
+
+          <mat-card-subtitle >vote_average :&nbsp; {{particularmovieData.vote_average}}
+          </mat-card-subtitle>
+
+
+
+          <div fxLayout="row wrap" fxLayoutGap="2px grid"
+          >
+              <mat-card-subtitle> genre_ids :&nbsp;&nbsp;</mat-card-subtitle>
+              <mat-card-subtitle *ngFor="let genre of particularMovieGenre">
+                  {{genre.name}}&nbsp;&nbsp;
+              </mat-card-subtitle>
+          </div>
+          <a mat-button matTooltip="Add to Favorite" (click)="addToFavourite(particularmovieData)">
+            <mat-icon>favorite</mat-icon>
+        </a>
+          <a routerLink="/dashboard/recommended" (click)="passRecommended(particularmovieData.original_title)" mat-button matTooltip="View Recommended Movies">
+            <mat-icon>Recommend</mat-icon>
+        </a>
+
+        <a routerLink="/dashboard/playmovie" (click)="play()" mat-button matTooltip="play trailer">
+          <mat-icon>play_arrow</mat-icon>
+      </a>
+
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert"
+                            style="font-size: 15px;">
+
+                            <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert"
+                                style="font-size: 15px;">
+                                <strong>Success !!!</strong> Movie added to your Favourites
+
+                                <button (click)="closeAlert()" type="button" class="close" data-dismis="alert"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div *ngIf="warningAlert" class="alert alert-danger alert-dismissible fade show" role="alert"
+                            style="font-size: 15px;">
+                            <strong>Warning !!!</strong> Movie already added to your Favourites
+                            <button (click)="closeAlert()" type="button" class="close" data-dismis="alert"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+      </mat-card>
+
+    </div>
+  </div>
+</div>
+</div>
+

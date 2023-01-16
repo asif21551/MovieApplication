@@ -1,0 +1,10 @@
+<div class="search"  style="background-color:rgb(199,239,173) ;text-align:center ;height:10% ;">
+  <h2 class="searchLine" class="font1" style="padding-top:20px ;font:500px;font-size:50px ;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Showing results for {{searchItem}}</h2>
+</div>
+<app-card *ngIf="isReady" [Searchmovies]="allSearchedMovies"></app-card>
+<div style="background-color:rgb(199,239,173) ;text-align:center ;height:10% ;padding-top:20px " >
+<div style="display: flex;" >
+  <button [disabled]="currentPg<=1" (click)="decreasePage()" mat-raised-button style="margin-left: auto;"><mat-icon>navigate_before</mat-icon>Previous Page</button>
+  <button [disabled]="currentPg>=33349" (click)="increasePage()" mat-raised-button style="margin-right : auto;">Next Page<mat-icon>navigate_next</mat-icon></button>
+</div>
+</div>

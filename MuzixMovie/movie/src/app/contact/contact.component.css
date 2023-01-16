@@ -1,0 +1,14 @@
+.content{
+  padding-left: 5%;
+  padding-right:2%;
+  padding-top: 10%;
+  padding-bottom: 20%;
+  background-image: linear-gradient(to right, #F8FFAE, #43C6AC);
+  height: auto;
+}
+p{
+  color:black;
+}
+a{
+  font-size: 20px;
+}

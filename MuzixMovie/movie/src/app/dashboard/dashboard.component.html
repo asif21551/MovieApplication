@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+      <mat-toolbar style="display:list-item ;display: flex;">
+          <a *ngIf="!isLogIn" mat-menu-item routerLink="/auth/login">
+              <mat-icon>login</mat-icon>Login
+          </a><hr>
+
+          <img class="avatar" *ngIf="isLogIn && genderMale" src="./assets/avatar.png">
+
+          <!-- <h3>{{userName}}</h3><br> -->
+      </mat-toolbar>
+      <mat-nav-list>
+
+         <h3 style="font-weight:bolder ;text-align:center;margin-right:5ppx ;">{{userName}}</h3><br><hr style="margin-top: -20px;">
+          <a class="onSelect" mat-list-item routerLink="/dashboard/home" >
+              <mat-icon>home</mat-icon>Home
+          </a>
+          <a class="onSelect" mat-list-item routerLink="favourite" >
+              <mat-icon>favorite</mat-icon> Favourite Movies
+          </a>
+          <a class="onSelect" mat-list-item routerLink="recommended" >
+              <mat-icon>recommend</mat-icon> Recommended
+          </a>
+
+          <!-- need to uncomment -->
+          <button class="onSelect" mat-button [matMenuTriggerFor]="menu">
+              <mat-icon>settings</mat-icon> Settings
+          </button>
+          <mat-menu #menu="matMenu">
+
+              <a *ngIf="isLogIn" mat-menu-item (click)="loggedOut()">
+                  <mat-icon>logout</mat-icon>Log Out
+              </a>
+              <a mat-menu-item routerLink="contact" >
+                <mat-icon>help</mat-icon>Help
+            </a>
+
+
+          </mat-menu>
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="justify-content:left;">
+    <mat-toolbar  class="top">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>Muzix Movie</span>&nbsp;
+
+
+          <span style="margin-left: 30%; margin-top:10px ;border:ghostwhite;">
+            <form (ngSubmit)="searchingItems(searchTxt.value)">
+            <input matInput type="text"   placeholder="     Search movie by name" style="background-color:rgb(36,154,118) ;width:100% ;color: aliceblue;"  #searchTxt>
+            <button mat-icon-button>
+              <mat-icon  type="submit" matTooltip="search">search</mat-icon>
+            </button>
+          </form>
+          </span>
+
+      </mat-toolbar>
+
+      <!-- Add Content Here -->
+      <!-- <app-home></app-home> -->
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

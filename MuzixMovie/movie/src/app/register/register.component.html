@@ -1,0 +1,157 @@
+
+
+
+<section class="vh-60" style="background-color:aquamarine ;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div  style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <br><p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p><hr>
+
+
+
+                <form [formGroup]="RegistrationForm" (ngSubmit)="OnRegister()" class="mx-1 mx-md-4">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="form3Example1c" placeholder="Enter a Name" class="form-control" formControlName="userName"
+                           />
+
+
+                           <span class="text-danger" *ngIf="getUserName.invalid && getUserName.touched ">Name
+                            Is Required </span>
+
+                      <label class="form-label" for="form3Example1c">Your Name</label>
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="form3Example3c" placeholder="Enter a valid email" class="form-control" formControlName="email"  />
+                      <span class="text-danger" *ngIf="getEmail.invalid && getEmail.touched ">Valid Email
+                        Is Required, </span>
+                      <label class="form-label" for="form3Example3c">Your Email</label>
+
+                    </div>
+
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" placeholder="Enter a password"  class="form-control" formControlName="password"/>
+
+                      <span class="text-danger"
+              *ngIf="(getPassword.errors?.['minlength'] && getPassword.errors?.['maxlength']) || (getPassword.invalid && getPassword.touched) ">Minimum
+              4 & Maximum 12 Character's </span>
+                      <label class="form-label" for="form3Example4c">Password</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" placeholder="Enter a confirm  password"  class="form-control" formControlName="confirmPassword"/>
+                      <span class="text-danger"
+              *ngIf="getConfirmPassword.invalid && getConfirmPassword.touched ">Confirm
+              Password Is Required </span>
+                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" placeholder="Enter a phoneNumber"  formControlName="phoneNumber" class="form-control" />
+                      <span class="text-danger"
+              *ngIf="(getPhoneNumber.errors?.['pattern']) || (getPhoneNumber.invalid && getPhoneNumber.dirty) ">Only
+              10 Digits</span>
+          <span class="text-danger "
+              *ngIf="getPhoneNumber.invalid && getPhoneNumber.touched ">Mobile Number Is
+              Required </span>
+                      <label class="form-label" for="form3Example4cd">Mobile Number</label>
+                    </div>
+                  </div>
+
+
+
+                  <!-- <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <select style="margin: 10px; width:250px;height: 45px;" formControlName="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    </div>
+                  </div> -->
+
+
+                  <h2 class="mb-2 pb-1" style="margin-left:20px ;">Gender: </h2>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"  formControlName="gender"
+                      value="male" checked />
+                    <label class="form-check-label" for="femaleGender">Male</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="gender"
+                      value="female" />
+                    <label class="form-check-label" for="maleGender">female</label>
+                  </div><br><br>
+
+
+                  <div class="row ">
+
+                    <div class="form-outline " style="size:50% ;">
+                        <label for="file" class="name">Profile Picture</label>
+                        <input formControlName="profilePicture" type="file"
+                            class="form-control form-control-lg " (change)="upload($event) ">
+                    </div>
+
+
+                    <span class="text-danger "
+                        *ngIf="getProfilePicture.invalid && getProfilePicture.touched ">Profile Picture
+                        Is Required </span>
+
+
+            </div> <br>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      I agree all statements in <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg"[disabled]="!RegistrationForm.valid ">Register</button>
+
+                  </div>
+                  <p class="small fw-bold mt-2 pt-1 mb-0 style:margin-left:10%">Do you want to Sign In?<a  routerLink="/auth/login"
+                    class="link-danger">Sign In </a></p>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="./assets/movie10.jpg"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

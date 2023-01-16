@@ -1,0 +1,29 @@
+.movie-img {
+  width: 400px;
+  height: 600px;
+}
+
+#bgimg {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+#infoCard {
+  /* opacity: 1; */
+  display: flex;
+}
+
+.cardContent {
+  background: linear-gradient(rgb(61, 61, 61), rgba(45,165,202,255));
+  color: white;
+  font-size: 40%;
+  margin: 20px;
+}
+
+mat-card-subtitle{
+  font-weight: bolder;
+  font-size: large;
+}
+
+
